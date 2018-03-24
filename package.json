@@ -1,0 +1,20 @@
+{
+  "name": "music",
+  "version": "1.0.0",
+  "description": "this is music",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html5",
+    "music"
+  ],
+  "author": "lkf",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.5.0",
+    "gulp-less": "^3.5.0"
+  }
+}

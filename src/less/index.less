@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font:12px/20px sans-serif, arial;
+}
+
+body {
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	// background-position: 10%;
+}
+
+.wrapper {
+	position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 60px;
+    // 用怪异模式盒模型来解决padding出现的问题。
+	box-sizing: border-box;
+	background-color: rgba(0,0,0,.3);
+	.img-wrapper {
+		width: 50%;
+		height: 0;
+		padding-top: 50%;
+		position: relative;
+		margin: 0 auto;
+		.song-img {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	.song-info {
+		height: 126px;
+		width: 100%;
+		margin-top: 40px;
+		text-align: center;
+		.song-name {
+			font-size: 24px;
+			line-height: 36px;
+			margin-bottom: 8px;
+			color: rgba(255,255,255,.86);
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.singer-name, .album-name {
+			font-size: 12px;
+			line-height: 16px;
+			margin-bottom: 6px;
+			color: rgba(255,255,255,.6);
+		}
+	}
+
+	.proccess {
+		display: flex;
+		.cur-time, .all-time {
+			font-size: 16px;
+			line-height: 40px;
+			text-align: center;
+			height: 40px;
+			width: 60px;
+			color: #fff;
+		}
+
+		.pro-wrapper {
+			flex:1;
+			position: relative;
+			overflow: hidden;
+			padding-left: 3px;
+			padding-right: 3px;
+			.pro-bottom, .pro-top {
+				position: absolute;
+				top: 20px;
+				height: 1px;
+				width: 100%;
+			}
+			.pro-bottom {
+				background-color: rgba(255,255,255,.6);
+			}
+			.pro-top {
+				background-color: #fff;
+				transform: translateX(-100%);
+				.slider-point {
+					position: absolute;
+					width: 20px;
+					height: 20px;
+					right: -10px;
+					top: -9px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				.slider-point::after {
+					content: "";
+					display: block;
+					height: 5px;
+					width: 5px;
+					border-radius: 50%;
+					background-color: #fff;
+				}
+			}
+		}
+	}
+
+	.song-control {
+		display: flex;
+		height: 50px;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		.btn {
+			flex: 1;
+			background-size: 20px 20px;
+			background-position: 50%;
+			background-repeat: no-repeat;
+		}
+		.like-btn {
+			background-image: url('/img/icon-like.png');
+			&.like {
+				background-image: url('/img/icon-like-solid.png');
+			}
+		}
+		.prev-btn {
+			background-image: url('/img/icon-prev.png');
+		}
+		.play-btn {
+			background-image: url('/img/icon-play.png');
+			&.playing {
+				background-image: url('/img/icon-pause.png');
+			}
+		}
+		.next-btn {
+			background-image: url('/img/icon-next.png');
+		}
+		.list-btn {
+			background-image: url('/img/icon-list.png');
+		}
+	}
+}
+
+.list-wrapper {
+	background-color: #fff;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	transform: translateY(100%);
+	transition: transform 200ms ease-in;
+	&.show {
+		transform: translateY(0);
+	}
+	.list-header, .close-btn {
+		height: 50px;
+		text-align: center;;
+		line-height: 50px;
+		color: rgba(0,0,0,.86);
+	}
+	.close-btn {
+		border-top: 1px solid rgba(0,0,0,.4);
+	}
+	.list-header {
+		border-bottom: 1px solid rgba(0,0,0,.4);
+	}
+	li {
+		height: 15px;
+		padding: 15px;
+		h3 {
+			color: rgba(0,0,0,.6);
+			font-size: 15px;
+			span {
+				font-size: 12px;
+			}
+		}
+		&.showList {
+			h3 {
+				color : rgba(255,0,0,.6);
+				span {
+					color: rgba(255,0,0,.5);
+				}
+			}
+		}
+	}
+}

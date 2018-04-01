@@ -6,8 +6,7 @@ var root = window.player,
 	controlmanager,
 	audiomanager = new root.audioManager(),
 	proccessor = root.proccessor,
-	playList = root.playList,
-	showLyrics = root.showLyrics;
+	playList = root.playList;
 
 function bindTouch() {
 	var $sliderPoint = $scope.find('.slider-point'),
@@ -84,7 +83,6 @@ function successFn(data) {
 	$scope.trigger('play:change',0);
 	controlmanager = new root.controlManager(data.length);
 	playList.renderList(data);
-	showLyrics.parseLyric(data);
 }
 
 function getData(url) {
